@@ -32,7 +32,7 @@ class Business:
         self.set_bus_rf()
         self.set_project_count()
 
-        # Generate set of projects for last year and this year
+        # Generate set of projects
         self.generate_projects()
 
         # Consolidate business level data from individual projects
@@ -103,7 +103,7 @@ class Project:
         self.project_rf = max(min(bus_rf + int(np.random.normal(loc=0.0, scale=2.0)), PROJECT_RF_MAX), PROJECT_RF_MIN)
 
     def set_is_claim(self):
-        #self.is_claim = True if random.random() <= np.exp(self.project_rf)/np.exp(10) else False
+        # self.is_claim = True if random.random() <= np.exp(self.project_rf)/np.exp(10) else False
         self.is_claim = True if random.random() >= np.log(12 - self.project_rf) else False
         # self.is_claim = True if np.random.exponential(scale=(11 -self.pro  ject_rf)) <= 0.5 else False
 
